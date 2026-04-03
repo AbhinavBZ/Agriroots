@@ -2453,15 +2453,14 @@ li {
 
   .hero-slider-container {
     width: 100%;
-    padding: 1.5rem 1rem;
-    height: auto;
-    min-height: 280px;
+    padding: 0;
+    height: 300px;
+    min-height: unset;
   }
 
   .slide {
-    position: relative;
-    padding: 1rem;
-    height: auto;
+    padding: 1.5rem;
+    height: 100%;
   }
 
   .slide h2 {
