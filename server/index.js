@@ -1065,6 +1065,7 @@ app.post('/api/seed', async (req, res) => {
         return res.status(403).json({ message: '⛔ Forbidden. Invalid or missing seed secret.' });
     }
     try {
+        await initDB();
         await pool.query('SET FOREIGN_KEY_CHECKS = 0');
         await pool.query('TRUNCATE TABLE services');
         await pool.query('TRUNCATE TABLE shop_items');
