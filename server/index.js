@@ -24,9 +24,16 @@ const pool = mysql.createPool({
     port: process.env.DB_PORT || 3306,
     ssl: process.env.DB_HOST && process.env.DB_HOST.includes('aivencloud') ? { rejectUnauthorized: false } : undefined,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 3,
     queueLimit: 0
 });
+
+// Singleton: ensure initDB only runs once across serverless invocations
+let initDBPromise = null;
+function ensureDB() {
+    if (!initDBPromise) initDBPromise = initDB();
+    return initDBPromise;
+}
 
 // ─── JWT Middleware ────────────────────────────────────────────────────────────
 function authenticateToken(req, res, next) {
@@ -1065,7 +1072,7 @@ app.post('/api/seed', async (req, res) => {
         return res.status(403).json({ message: '⛔ Forbidden. Invalid or missing seed secret.' });
     }
     try {
-        await initDB();
+        await ensureDB();
         await pool.query('SET FOREIGN_KEY_CHECKS = 0');
         await pool.query('TRUNCATE TABLE services');
         await pool.query('TRUNCATE TABLE shop_items');
@@ -1394,7 +1401,7 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
-// Initialize database tables (important for Vercel serverless cold starts)
-initDB().catch(err => console.error("Database initialization failed:", err));
+// Initialize database tables once on cold start
+ensureDB().catch(err => console.error('Database initialization failed:', err));
 
 module.exports = app;
