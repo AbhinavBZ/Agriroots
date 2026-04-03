@@ -5,7 +5,8 @@ function Services() {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/services')
+        const url = import.meta.env.PROD ? '/api/services' : 'http://localhost:5000/api/services';
+        fetch(url)
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(err => console.error(err));
