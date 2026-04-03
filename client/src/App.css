@@ -2413,3 +2413,209 @@ li {
     padding: 0.4rem 0.8rem;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — Homepage & Data Tables
+══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Hero Section ── */
+  .hero-section {
+    padding: 2rem 4%;
+  }
+
+  .hero-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-header .highlight {
+    font-size: 3rem;
+  }
+
+  .hero-header p {
+    font-size: 0.95rem;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-graphics {
+    display: none; /* hide tree on mobile to save space */
+  }
+
+  .hero-slider-container {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    height: auto;
+    min-height: 280px;
+  }
+
+  .slide {
+    position: relative;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .slide h2 {
+    font-size: 1.4rem;
+  }
+
+  .slide-tags {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .slider-dots {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  /* ── Services Section ── */
+  .services-section {
+    padding: 3rem 4%;
+  }
+
+  .services-section h2 {
+    font-size: 2rem;
+  }
+
+  .services-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .service-card {
+    height: 180px;
+  }
+
+  .card-content h3 {
+    font-size: 1rem;
+  }
+
+  /* ── Journey Section ── */
+  .journey-section {
+    padding: 3rem 4%;
+    margin-top: 2rem;
+  }
+
+  .journey-section h2 {
+    font-size: 2rem;
+  }
+
+  .journey-section p {
+    margin: 1rem 0;
+  }
+
+  .underline {
+    margin-left: 0;
+  }
+
+  .journey-btn {
+    margin-left: 0;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  /* ── Agriculture Data Tables ── */
+  .agriculture-data-section {
+    padding: 2rem 0;
+  }
+
+  .agriculture-data-container {
+    padding: 0;
+  }
+
+  .data-navbar {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 0;
+    padding-bottom: 0;
+    scrollbar-width: none;
+  }
+
+  .data-navbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .data-tab-btn {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .data-content {
+    padding: 0 1rem;
+  }
+
+  .data-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .agri-table {
+    min-width: 520px; /* force table to be scrollable rather than squishing */
+    font-size: 0.82rem;
+  }
+
+  .agri-table th,
+  .agri-table td {
+    padding: 0.6rem 0.7rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .table-header-title h2 {
+    font-size: 1.4rem;
+  }
+
+  .table-header-title p {
+    font-size: 0.85rem;
+  }
+
+  /* ── Learning Videos on mobile ── */
+  .lv-carousel-wrap {
+    height: 280px;
+  }
+
+  .lv-center {
+    width: 90vw;
+  }
+
+  .lv-offset-p1,
+  .lv-offset-n1,
+  .lv-offset-p2,
+  .lv-offset-n2 {
+    display: none;
+  }
+
+  .lv-arrow-left {
+    left: 0.5rem;
+  }
+
+  .lv-arrow-right {
+    right: 0.5rem;
+  }
+
+  /* ── Footer ── */
+  .footer-big-logo-container {
+    display: none;
+  }
+
+  .footer-big-logo {
+    font-size: 3rem;
+  }
+}
