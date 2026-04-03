@@ -2456,6 +2456,7 @@ li {
     padding: 0;
     height: 300px;
     min-height: unset;
+    overflow: hidden;
   }
 
   .slide {
@@ -2497,11 +2498,25 @@ li {
   }
 
   .service-card {
-    height: 180px;
+    height: 200px;
   }
 
   .card-content h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-content p {
+    font-size: 0.72rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    white-space: nowrap;
+    width: auto;
+    margin: auto auto 0 auto;
   }
 
   /* ── Journey Section ── */
