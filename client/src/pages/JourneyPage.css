@@ -1,0 +1,324 @@
+/* Removed gradient animation in favor of static radial theme */
+
+.journey-page {
+  background: radial-gradient(ellipse at 50% -20%, #1e4526 0%, #0d2112 40%, #181310 75%, #0a0705 100%);
+  background-attachment: fixed;
+  color: #fff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.08) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Sparkling Particles Background */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(76, 175, 80, 0.3);
+  border-radius: 50%;
+  animation: sparkle linear infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  90% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Header Spacer removed as it is full screen now */
+
+.journey-content {
+  position: relative;
+}
+
+/* The Fixed Visual Canvas */
+.visual-canvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10vh;
+  z-index: 1;
+}
+
+/* Glassmorphic step cards */
+.steps-container {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 20vh;
+}
+
+.step-card {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+}
+
+.step-content {
+  padding: 3rem 0;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: default;
+}
+
+.step-content:hover .step-title {
+  text-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+  transform: translateX(10px);
+  color: #66bb6a;
+}
+
+.step-content:hover .step-number {
+  color: rgba(76, 175, 80, 0.4);
+  transform: translateY(-5px);
+}
+
+.step-content:hover .step-desc {
+  color: #ffffff;
+}
+
+.step-content.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.step-number {
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(76, 175, 80, 0.25);
+  line-height: 1;
+  margin-bottom: -1.5rem;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.step-title {
+  font-size: 4.5rem;
+  color: #4caf50;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.step-desc {
+  font-size: 1.5rem;
+  color: #e2fbe3;
+  line-height: 1.8;
+  transition: all 0.5s ease;
+}
+
+/* SVG Plant Animation Classes */
+.plant-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  overflow: visible;
+}
+
+.stem-path {
+  fill: none;
+  stroke: #4caf50;
+  stroke-width: 8;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px #4caf50);
+}
+
+/* Removed default fast transition for leaf to allow svg inline transforms */
+.leaf {
+  transform-origin: 0 0;
+}
+
+.fruit {
+  transform-origin: center;
+}
+
+.leaf path {
+  fill: url(#leafGradient);
+  stroke: #4caf50;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 4px rgba(76, 175, 80, 0.3));
+}
+
+.fruit circle.fruit-glow {
+  fill: #ffb300;
+  filter: blur(8px);
+}
+
+.fruit circle.fruit-core {
+  fill: #ffca28;
+  stroke: #ff9800;
+  stroke-width: 2;
+}
+
+.seed-body {
+  transition: all 0.5s ease;
+}
+
+.soil {
+  fill: #3e2723;
+  opacity: 0.8;
+}
+
+.soil-top {
+  fill: #4e342e;
+  opacity: 0.9;
+}
+
+.seed-glow {
+  fill: #4caf50;
+  opacity: 0;
+  filter: blur(15px);
+  transition: opacity 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .visual-canvas {
+    width: 100%;
+    opacity: 0.3;
+    /* Send it to back with lower opacity */
+    z-index: 0;
+  }
+
+  .steps-container {
+    width: 100%;
+  }
+
+  .step-card {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .step-title {
+    font-size: 3rem;
+  }
+
+  .step-number {
+    font-size: 4rem;
+  }
+
+  .step-desc {
+    font-size: 1.2rem;
+  }
+}
+
+/* Curtain Animation Intro */
+.curtain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  pointer-events: none;
+}
+
+.curtain-panel {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  transition: transform 1.5s cubic-bezier(0.65, 0, 0.15, 1);
+  pointer-events: auto;
+  /* Block clicks while loading */
+}
+
+.curtain-panel.left {
+  transform-origin: left;
+}
+
+.curtain-panel.right {
+  transform-origin: right;
+}
+
+.curtain-panel.left.open {
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.curtain-panel.right.open {
+  transform: translateX(100%);
+  pointer-events: none;
+}
+
+.curtain-svg {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.curtain-panel.left .curtain-svg {
+  right: -2px;
+  /* Slight overlap to prevent seam */
+  width: calc(100% + 2px);
+}
+
+.curtain-panel.right .curtain-svg {
+  left: -2px;
+  width: calc(100% + 2px);
+}
+
+.curtain-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  color: #4caf50;
+  font-size: 6rem;
+  filter: drop-shadow(0 0 30px #4caf50);
+  transition: all 1.2s cubic-bezier(0.65, 0, 0.15, 1);
+}
+
+.curtain-logo.open {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(3) rotate(90deg);
+  pointer-events: none;
+}
