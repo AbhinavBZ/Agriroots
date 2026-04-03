@@ -1393,4 +1393,7 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
+// Initialize database tables (important for Vercel serverless cold starts)
+initDB().catch(err => console.error("Database initialization failed:", err));
+
 module.exports = app;
