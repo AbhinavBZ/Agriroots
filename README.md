@@ -82,3 +82,6 @@ This project is built to deploy smoothly on **Vercel** with a Cloud MySQL Databa
 1. Move the local MySQL database to a cloud provider like **Aiven**.
 2. Supply Vercel with the environment variables listed above (including your new Aiven database host/passwords).
 3. Vercel utilizes the included `vercel.json` file to bridge the monolithic Express API into serverless functions.
+
+
+Thanks for visiting 😊
